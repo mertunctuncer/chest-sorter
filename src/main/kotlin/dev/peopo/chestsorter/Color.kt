@@ -1,8 +1,6 @@
-package dev.peopo.wandererworlds.util
+package dev.peopo.chestsorter
 
-import dev.peopo.wandererworlds.util.config.messages.Messages
 import org.bukkit.ChatColor
-import org.bukkit.entity.Player
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -20,12 +18,4 @@ private fun translateHexColorCodes( message: String): String {
 		)
 	}
 	return matcher.appendTail(buffer).toString()
-}
-
-
-fun Player.sendColorizedMessage(message: Messages) = this.sendMessage(messages.getColorized(message))
-
-fun Player.sendColorizedMessage(message: Messages, parser: (message: String) -> String) {
-	val raw = messages.getMessage(message)
-	this.sendMessage(parser.invoke(raw).colorize())
 }
