@@ -24,16 +24,10 @@ open class YamlConfig(private val plugin: Plugin, fileName: String) : YamlConfig
         plugin.saveResource(fileName, false)
     }
 
-    fun load() = try {
+    private fun load() = try {
         super.load(file)
     } catch (e: Exception) {
         plugin.logger.severe("An error has occurred while loading the config file!")
-    }
-
-    fun save() = try {
-        super.save(file)
-    } catch (e: Exception) {
-        e.printStackTrace()
     }
 }
 

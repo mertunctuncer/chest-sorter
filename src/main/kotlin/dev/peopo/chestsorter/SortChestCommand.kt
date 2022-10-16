@@ -10,25 +10,25 @@ import org.bukkit.entity.Player
 class SortChestCommand : TabExecutor{
 
 	override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>?): Boolean {
-		if(sender !is Player) {
+		if (sender !is Player) {
 			sender.sendMessage("Only players can use this command!")
 			return true
 		}
-		val player = sender
 
-		if(!player.hasPermission("chestsorter.sort")) {
-			config.getString("no-permission-message")?.colorize()?.let { sender.sendMessage(it) } ?: logger.severe("Config file is missing the no-permission-message!")
+		if (!sender.hasPermission("chestsorter.sort")) {
+			config.getString("no-permission-message")?.colorize()?.let { sender.sendMessage(it) }
+				?: logger.severe("Config file is missing the no-permission-message!")
 			return true
 		}
 
-		val targetBlock = player.getTargetBlock(10)
+		val targetBlock = sender.getTargetBlock(10)
 
-		if(targetBlock == null || targetBlock.isEmpty) {
+		if (targetBlock == null || targetBlock.isEmpty) {
 			config.getString("no-target-message")?.colorize()?.let { sender.sendMessage(it) } ?: logger.severe("Config file is missing the no-target-message!")
 			return true
 		}
 
-		if(targetBlock.type != Material.CHEST && targetBlock.type != Material.TRAPPED_CHEST) {
+		if (targetBlock.type != Material.CHEST && targetBlock.type != Material.TRAPPED_CHEST) {
 			config.getString("not-chest-message")?.colorize()?.let { sender.sendMessage(it) } ?: logger.severe("Config file is missing the not-chest-message!")
 			return true
 		}
@@ -39,7 +39,8 @@ class SortChestCommand : TabExecutor{
 			.calculateTotals()
 			.sort()
 
-		config.getString("inventory-sorted-message")?.colorize()?.let { sender.sendMessage(it) } ?: logger.severe("Config file is missing the inventory-sorted-message!")
+		config.getString("inventory-sorted-message")?.colorize()?.let { sender.sendMessage(it) }
+			?: logger.severe("Config file is missing the inventory-sorted-message!")
 		return true
 	}
 
