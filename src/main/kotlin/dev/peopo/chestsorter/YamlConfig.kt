@@ -1,6 +1,5 @@
-package dev.peopo.wandererworlds.util.config
+package dev.peopo.chestsorter
 
-import dev.peopo.wandererworlds.util.logger
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.Plugin
 import java.io.File
@@ -28,7 +27,7 @@ open class YamlConfig(private val plugin: Plugin, fileName: String) : YamlConfig
     fun load() = try {
         super.load(file)
     } catch (e: Exception) {
-        logger.severe("An error has occurred while loading the config file!")
+        plugin.logger.severe("An error has occurred while loading the config file!")
     }
 
     fun save() = try {
