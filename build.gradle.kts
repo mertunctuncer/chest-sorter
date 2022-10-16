@@ -34,9 +34,6 @@ repositories {
 dependencies {
     paperDevBundle("1.18.2-R0.1-SNAPSHOT")
 
-
-    implementation("com.github.mertunctuncer:bukkit-scope:1.0.0")
-
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.7.20")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 }
