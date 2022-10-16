@@ -1,0 +1,8 @@
+
+
+# Permission : chestsorter.sort
+
+no-permission-message: "&7ChestSorter &f► &cYou don't have permission to use this command."
+no-target-message: "&7ChestSorter &f► &cYou need to be looking at a chest."
+not-chest-message: "&7ChestSorter &f► &cBlock you are looking at is not a chest."
+inventory-sorted-message: "&7ChestSorter &f► &aChest sorted."
